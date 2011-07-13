@@ -172,9 +172,6 @@ def main():
 	endtime = int(time())
 	starttime = endtime - (args.days*24*60*60)
 	
-	endtime = int(time()) - (.5*24*60*60)
-	starttime = endtime - (1*24*60*60)
-	
 	con = sqlite3.connect(args.database)
 	c = con.cursor()
 
