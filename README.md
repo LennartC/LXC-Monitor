@@ -34,61 +34,61 @@ self-explanatory.
 
 Initialize the database file:
 
-python /path/to/data_poller.py --init
+	python /path/to/data_poller.py --init
 
 Add the data poller script to the crontab:
 
-*/5 * * * * python /path/to/data_poller.py
+	*/5 * * * * python /path/to/data_poller.py
 
 This will collect data every 5 minutes and store it in the sqlite database you
 configured.
 
 If you want the charts to be generated automatically, add it to the crontab:
 
-0 3 * * 1 python /path/to/generate_charts.py
+	0 3 * * 1 python /path/to/generate_charts.py
 
 This will generate the charts every monday morning at 3 am. If you want to 
 receive a nice mail with all the charts, add the -m option:
 
-0 3 * * 1 python /path/to/generate_charts.py -m
+	0 3 * * 1 python /path/to/generate_charts.py -m
 
 USAGE
 =======
 The default parameters can be overridden through command line options:
 
-usage: generate_charts.py [-h] [-d DAYS] [-n] [-db DATABASE] [-f FOLDER]
-                          [-b BASEURL] [-c CONTAINERS [CONTAINERS ...]] [-m]
-                          [-r RECIPIENTS [RECIPIENTS ...]]
+	usage: generate_charts.py [-h] [-d DAYS] [-n] [-db DATABASE] [-f FOLDER]
+	                          [-b BASEURL] [-c CONTAINERS [CONTAINERS ...]] [-m]
+	                          [-r RECIPIENTS [RECIPIENTS ...]]
+	
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  -d DAYS, --days DAYS  Parse records from last DAYS days.
+	  -n, --noclean         Don't clean up database
+	  -db DATABASE, --database DATABASE
+	                        SQLite database file
+	  -f FOLDER, --folder FOLDER
+	                        Save charts in FOLDER
+	  -b BASEURL, --baseurl BASEURL
+	                        Base URL
+	  -c CONTAINERS [CONTAINERS ...], --containers CONTAINERS [CONTAINERS ...]
+	                        LXC Containers to create charts for
+	  -m, --mail            Send mail with the charts
+	  -r RECIPIENTS [RECIPIENTS ...], --recipients RECIPIENTS [RECIPIENTS ...]
+	                        Mail recipients
+	
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -d DAYS, --days DAYS  Parse records from last DAYS days.
-  -n, --noclean         Don't clean up database
-  -db DATABASE, --database DATABASE
-                        SQLite database file
-  -f FOLDER, --folder FOLDER
-                        Save charts in FOLDER
-  -b BASEURL, --baseurl BASEURL
-                        Base URL
-  -c CONTAINERS [CONTAINERS ...], --containers CONTAINERS [CONTAINERS ...]
-                        LXC Containers to create charts for
-  -m, --mail            Send mail with the charts
-  -r RECIPIENTS [RECIPIENTS ...], --recipients RECIPIENTS [RECIPIENTS ...]
-                        Mail recipients
-
-
-usage: data_poller.py [-h] [-db DATABASE] [-c CONTAINERS [CONTAINERS ...]]
-                      [--init]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -db DATABASE, --database DATABASE
-                        SQLite database file
-  -c CONTAINERS [CONTAINERS ...], --containers CONTAINERS [CONTAINERS ...]
-                        LXC Containers to create charts for
-  --init                Initialize the database
-
-  
+	usage: data_poller.py [-h] [-db DATABASE] [-c CONTAINERS [CONTAINERS ...]]
+	                      [--init]
+	
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  -db DATABASE, --database DATABASE
+	                        SQLite database file
+	  -c CONTAINERS [CONTAINERS ...], --containers CONTAINERS [CONTAINERS ...]
+	                        LXC Containers to create charts for
+	  --init                Initialize the database
+	
+	  
 LICENSE
 =======
 "THE BEER-WARE LICENSE" (Revision 42):
