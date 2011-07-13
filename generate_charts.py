@@ -122,15 +122,18 @@ def sendMail(groups, recipients, baseurl):
 		html+='<div style="background-color: #FFF; padding: 10px; margin-top: 10px;">'
 		html+='<h3 style="font-size: 1em; margin: .2em 0">%s</h3>' % (group,)
 		html+='<h4 style="font-size: .7em; margin: .2em 0; float: left; clear: left;">Memory (MB):</h4>'
-		html+='<ul style="float: left; list-style-type: none; margin: 0">'
-		html+='	<li style="font-size: .7em;  display: inline; padding-left: 5px; border-left: 10px solid #3f5f9f">RSS</li>'
-		html+='	<li style="font-size: .7em;  display: inline; padding-left: 5px; border-left: 10px solid #7fbf3f">Cache</li>'
-		html+='	<li style="font-size: .7em;  display: inline; padding-left: 5px; border-left: 10px solid #ff7f7f">Swap</li>'
-		html+='</ul>'
+		html+= """
+		<ul style="float: left; list-style-type: none; margin: 0">
+			<li style="font-size: .7em;  display: inline; padding-left: 5px; border-left: 10px solid #3f5f9f">RSS</li>
+			<li style="font-size: .7em;  display: inline; padding-left: 5px; border-left: 10px solid #7fbf3f">Cache</li>
+			<li style="font-size: .7em;  display: inline; padding-left: 5px; border-left: 10px solid #ff7f7f">Swap</li>
+		</ul>
+		"""
 		html+='<img src="%s/%s_mem.png"/>' % (baseurl,group)
 		html+='<h4 style="font-size: .7em; margin: .2em 0; float: left; clear: left;">CPU Usage (per 5m):</h4>'
 		html+='<img src="%s/%s_cpu.png"/>' % (baseurl,group)
 		html+='</div>'
+		html+="\n"
 	
 	html += "</div></div></body>"
 
