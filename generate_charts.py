@@ -67,7 +67,6 @@ def generateMemChart(c, group, starttime, endtime, folder):
 	rssData = Gnuplot.Data(rss);
 	rssData.set_option(using=(1,2))
 	g.plot(swapData,cacheData,rssData)
-	g.save("platdata")
 
 def generateCPUChart(c, group, starttime, endtime, folder):
 	c.execute('SELECT time, cpu_usage FROM data WHERE name = ? AND TIME BETWEEN ? AND ? ORDER by time',(group,starttime,endtime,))
